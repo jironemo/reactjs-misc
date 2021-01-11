@@ -1,10 +1,9 @@
-import React,{Component} from 'react';
+import React from 'react';
 import {Card,CardImg,CardText,CardBody,CardTitle,ListGroupItem} from 'reactstrap';
 
-class DishDetail extends Component {
-    render(){
+    function RenderDish({dish}){
         //reassigning dish into a local constant.
-        const dishc = this.props.dish;
+        const dishc = dish;
 
         //defining a variable r, which will be the returned JSX of this class;
         var r = null;
@@ -27,23 +26,22 @@ class DishDetail extends Component {
             //the JSX value to be returned.
             r = (
                 <div className = "row">    
-                    <div key ={dishc.id} className = "col-6 col-md-2 m-4">
+                    <div key ={dishc.id} className = "col-2 col-md-4 m-4">
                         <Card>
-                            <CardImg width = "100%" src = {dishc.image} alt = {dishc.name}/>
+                            <CardImg width = "20%" src = {dishc.image} alt = {dishc.name}/>
                             <CardBody>
                                 <CardTitle>{dishc.name}</CardTitle>
                                 <CardText>{dishc.description}</CardText>
                             </CardBody>
                         </Card>
                     </div>
-                    <div className = "col-2 col-md-3  m-1">
+                    <div className = "col-6 col-md-3  m-1">
                         {comments}
                     </div>
                 </div>
             );}
         return(r);
     }
-}
 
 
-export default DishDetail;
+export default RenderDish;
