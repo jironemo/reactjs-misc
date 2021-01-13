@@ -7,10 +7,11 @@ export const initialState = {
     dishes: DISHES,
     comments:COMMENTS,
     promotions: PROMOTIONS,
-    leaders: LEADERS
+    leaders: LEADERS,
 };
 
 
-export const Reducer = (state = /*This is a default value for state*/initialState,action) => {
+export const Reducer = (state = /*This is a default 
+    value for state*/initialState,action) => {
     return state;
 };
