@@ -7,7 +7,7 @@ function RenderLeader({leader}){
         <div>
             <Media>
             <Media left right object src = {leader.image}/>
-                <Media body className = "ml-5 mb-5">
+                <Media body className = "ml-5 mb-5 text-justify">
                    <Media heading> {leader.name}</Media>
                    {leader.designation}<br/>
                    {leader.description}
@@ -79,10 +79,8 @@ function About(props) {
                 <div className="col-12">
                     <h2>Corporate Leadership</h2>
                 </div>
-                <div className="col-12">
-                    <Media list>
+                <div className="col-12 ">
                         {leaders}
-                    </Media>
                 </div>
             </div>
         </div>

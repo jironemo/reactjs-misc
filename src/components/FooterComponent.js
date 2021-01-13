@@ -16,15 +16,15 @@ function Footer(props) {
                 </div>
                 <div className="col-12 col-sm-4 align-self-center">
                     <div className="text-center">
-                        <a className="btn btn-social-icon btn-facebook" target = "_blank" href="http://www.facebook.com/profile.php?id=jiro.dev"><i className="fa fa-facebook"></i></a>
+                        <a className="btn btn-social-icon btn-facebook" target = "_blank" rel = "noreferrer" href="http://www.facebook.com/profile.php?id=jiro.dev"><i className="fa fa-facebook"></i></a>
                         <a className="btn btn-social-icon btn-instagram" href="https://www.instagram.com/jiro_deve"><i className="fa fa-instagram"></i></a>
-                        <a className="btn btn-social-icon btn-github" target = "_blank" href="http://www.github.com/jironemo"><i className = "fa fa-github"></i></a>
+                        <a className="btn btn-social-icon btn-github" rel = "noreferrer" target = "_blank" href="http://www.github.com/jironemo"><i className = "fa fa-github"></i></a>
                     </div>
                 </div>
             </div>
             <div className="row justify-content-center">             
-                <div className="col-auto">
-                    <p>© Copyright 2018 Ristorante Con Fusion</p>
+                <div className="col-auto text-white">
+                    <p>© Copyright 2020 Jiro Nemo Production</p>
                 </div>
             </div>
         </div>

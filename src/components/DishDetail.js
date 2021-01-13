@@ -1,6 +1,6 @@
 
   
-import React from 'react';
+import * as React from 'react';
 import {Card,CardImg,CardText,CardBody,CardTitle,ListGroupItem,Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
     function DishDetail({dish,comments}){
@@ -16,9 +16,10 @@ import {Link} from 'react-router-dom';
             ///this is the list of JSX formatted comments on the selected dish
             const cmts = comments.map((comment)=>{
                 return(
-                    <ListGroupItem className="border-0">
-                            <p><b>{comment.author}</b> --{comment.comment}</p>
-                            <p>{comment.rating}/5</p>
+                    <ListGroupItem >
+                            <p><b>{comment.author}</b></p>
+                            <p className = "text-left">"{comment.comment}"</p>
+                            <p>Rating:{comment.rating}/5</p>
                             <p>{comment.date}</p>
                     </ListGroupItem>
     
@@ -34,14 +35,13 @@ import {Link} from 'react-router-dom';
                             <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
                             <BreadcrumbItem active>{dishc.name}</BreadcrumbItem>
                         </Breadcrumb>
-                        <div className="col-12">
+                        <div className="col-12 ml-4">
                             <h3>{dishc.name}</h3>
-                            <hr />
                         </div>                
                     </div>
                         <div className = "row">    
                 
-                            <div key ={dishc.id} className = "col-2 col-md-4 m-4">
+                            <div key ={dishc.id} className = "col-10 col-md-4 ml-4 mt-0">
                                 <Card>
                                     <CardImg width = "20%" src = {dishc.image} alt = {dishc.name}/>
                                     <CardBody>
@@ -50,7 +50,8 @@ import {Link} from 'react-router-dom';
                                     </CardBody>
                                 </Card>
                             </div>
-                            <div className = "col-6 col-md-3  m-1">
+                            <div className = "col-10 col-md-7 ml-4 mt-0">
+                                <h5>Comments</h5>
                                 {cmts}
                             </div>
                         </div>

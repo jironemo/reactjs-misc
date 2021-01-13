@@ -1,5 +1,3 @@
-
-import { render } from '@testing-library/react';
 import React from 'react';
 import {Card,CardImg,CardImgOverlay,CardTitle,Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
@@ -35,7 +33,7 @@ import {Link} from 'react-router-dom';
                         </Breadcrumb>
                         <div className="col-12">
                             <h3>Menu</h3>
-                            <hr />
+                            <hr/>
                         </div>                
                     </div>
                     <div className="row">

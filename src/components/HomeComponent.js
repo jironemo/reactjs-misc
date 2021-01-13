@@ -2,7 +2,7 @@ import React from 'react';
 import {Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle} from 'reactstrap';
 
 
-import { slideInUp,bounceIn,rotateIn } from 'react-animations';
+import { slideInUp} from 'react-animations';
 import Radium,{StyleRoot} from 'radium';
 
 const styles= {
@@ -28,8 +28,8 @@ function RenderCard({item}){
 function Home(props){
     return(
        <StyleRoot>
-         <div className = "container" >
-            <div className = "row align-items-start">
+         <div className = "container"  >
+            <div className = "row align-items-start mt-5" >
                 <div className = "col-12 col-md m1" style = {styles.slidein}>
                     <RenderCard item = {props.dish} />
                 </div>
