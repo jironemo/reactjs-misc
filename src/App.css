@@ -14,9 +14,10 @@
 }
 
 .footer{
-  background-color: #bec3c5;
+  background-color: #023c53;
   margin:0px auto;
   padding: 20px 0px 20px 0px;
+  color:rgb(247, 251, 255)
 }
 .jumbotron {
   padding:30px 30px;
@@ -24,11 +25,10 @@
   background: #123185 ;
   color:floralwhite;
 }
-
 address{
   font-size:80%;
   margin:0px;
-  color:#ffffff;
+  color:#181212;
 }
 
 a{

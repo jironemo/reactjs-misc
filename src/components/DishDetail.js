@@ -5,6 +5,7 @@ import {Modal,Col,Row,ModalBody,ModalHeader,Label,Button,Card,CardImg,CardText,C
 import {Link} from 'react-router-dom';
 import {Control, LocalForm,Errors} from 'react-redux-form';
 import {Loading} from './LoadingComponent';
+import {baseUrl} from '../shared/baseUrl';
     const required = (val) =>  val && val.length;
     const maxLength = (len) =>(val)=> !(val) || (val.length <= len);
     const minLength = (len) =>(val)=> (val) && (val.length >=len);
@@ -134,7 +135,7 @@ import {Loading} from './LoadingComponent';
                 
                             <div key ={dishc.id} className = "col-10 col-md-4 ml-4 mt-0">
                                 <Card>
-                                    <CardImg width = "20%" src = {dishc.image} alt = {dishc.name}/>
+                                    <CardImg width = "20%" src = {baseUrl+ dishc.image} alt = {dishc.name}/>
                                     <CardBody>
                                         <CardTitle>{dishc.name}</CardTitle>
                                         <CardText>{dishc.description}</CardText>

@@ -4,6 +4,7 @@ import {Loading} from './LoadingComponent'
 
 import { slideInUp} from 'react-animations';
 import Radium,{StyleRoot} from 'radium';
+import {baseUrl} from '../shared/baseUrl';
 
 const styles= {
     slidein: {
@@ -23,7 +24,7 @@ function RenderCard({ item, isLoading, errMess }) {
     }
     else return (
         <Card>
-        <CardImg src = {(item.image)} alt = {item.name}/>
+        <CardImg src = {baseUrl + item.image} alt = {item.name}/>
         <CardBody>
             <CardTitle>{item.name}</CardTitle>
             {item.designation ? <CardSubtitle><b>{item.designation}</b></CardSubtitle>:null}
@@ -43,7 +44,8 @@ function Home(props){
                     errMess = {props.errMess} />
                 </div>
                 <div className = "col-12 col-md m1" style = {styles.slidein}>
-                    <RenderCard item = {props.promotion}/>
+                    <RenderCard item = {props.promotion} isLoading = {props.promosLoading} 
+                    errMess = {props.promoserrMess}/>
                 </div>
                 <div className = "col-12 col-md m1" style = {styles.slidein}>
                     <RenderCard item = {props.leader}/>
