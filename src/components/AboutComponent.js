@@ -60,7 +60,7 @@ function About(props) {
                         </CardBody>
                     </Card>
                 </div>
-                <div className="col-12">
+                <div className="col-12 col-md-11">
                     <Card>
                         <CardBody className="bg-faded">
                             <blockquote className="blockquote">

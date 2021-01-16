@@ -4,7 +4,7 @@ import React,{Component}  from 'react';
 import {Modal,Col,Row,ModalBody,ModalHeader,Label,Button,Card,CardImg,CardText,CardBody,CardTitle,ListGroupItem,Breadcrumb,BreadcrumbItem} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import {Control, LocalForm,Errors} from 'react-redux-form';
-
+import {Loading} from './LoadingComponent';
     const required = (val) =>  val && val.length;
     const maxLength = (len) =>(val)=> !(val) || (val.length <= len);
     const minLength = (len) =>(val)=> (val) && (val.length >=len);
@@ -26,8 +26,7 @@ import {Control, LocalForm,Errors} from 'react-redux-form';
         }
 
         handleSubmit(values){
-            console.log(JSON.stringify(values));
-            alert(JSON.stringify(values));
+            this.props.addComment(this.props.dishId,values.rating,values.author,values.comment);
         }
         render() {
             return(
@@ -43,19 +42,19 @@ import {Control, LocalForm,Errors} from 'react-redux-form';
                             <Row className = 'form-group'>
                                 <Label htmlFor = "rating" md=  {2}> Rating</Label>
                                 <Col md = {10}>
-                                    <Control.Select model = '.rating' className = 'form-control' id = 'rating' name ='rating'>
+                                    <Control.select model = '.rating' className = 'form-control' id = 'rating' name ='rating'>
                                         <option>1</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
                                         <option>5</option>
-                                    </Control.Select>
+                                    </Control.select>
                                 </Col>
                             </Row>
                             <Row className = 'form-group'>
                                 <Label htmlFor = "author" md=  {2}> Author</Label>
                                 <Col md = {10}>
-                                    <Control.Text model = '.author' className = 'form-control' id = 'author' name ='author'
+                                    <Control.text model = '.author' className = 'form-control' id = 'author' name ='author'
                                     validators = {{required,minLength:minLength(3),maxLength:maxLength(15)}}
                                     />
                                     <Errors className = 'text-danger' model = '.author' show = 'touched' messages= {{
@@ -68,7 +67,7 @@ import {Control, LocalForm,Errors} from 'react-redux-form';
                             <Row className = 'form-group'>
                                 <Label htmlFor = "comment" md=  {2}> Comment</Label>
                                 <Col md = {10}>
-                                    <Control.Textarea model = '.comment' rows = '12' className = 'form-control' id = 'comment' name ='comment'/>
+                                    <Control.textarea model = '.comment' rows = '12' className = 'form-control' id = 'comment' name ='comment'/>
                                 </Col>
                             </Row>
                             <Button type = 'submit' color ='primary'>Send</Button>
@@ -79,13 +78,29 @@ import {Control, LocalForm,Errors} from 'react-redux-form';
                 )
         }
     }
-    function DishDetail({dish,comments}){
+
+    function DishDetail({dish,comments,addComment,isLoading,errMess}){
         //reassigning dish into a local constant.
         const dishc = dish;
 
         //defining a variable r, which will be the returned JSX of this class;
         var r = null;
-
+        if(isLoading){
+            return(<div className = 'container'>
+                <div className = 'row'>
+                <Loading/>
+                </div>
+            </div>)
+        }
+        else if (errMess) {
+            return(
+                <div className = 'container'>
+                    <div className = 'row'>
+                        <h4>{dish.errMess}</h4>
+                    </div>
+                </div>
+            )
+        }
         ///if the passed dish is not null;
         if(dishc != null){
 
@@ -129,7 +144,7 @@ import {Control, LocalForm,Errors} from 'react-redux-form';
                             <div className = "col-10 col-md-7 ml-4 mt-0">
                                 <h5>Comments</h5>
                                 {cmts}
-                                    <CommentForm/>
+                                <CommentForm addComment = {addComment} dishId = {dish.id}/>
                             </div>
                         </div>
                 </div>
