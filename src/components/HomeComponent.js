@@ -14,6 +14,7 @@ const styles= {
 }
 
 function RenderCard({ item, isLoading, errMess }) {
+    console.log("item:"+item)
     if (isLoading) {
         return <Loading />;
     }
@@ -24,6 +25,7 @@ function RenderCard({ item, isLoading, errMess }) {
     }
     else return (
         <Card>
+
         <CardImg src = {baseUrl + item.image} alt = {item.name}/>
         <CardBody>
             <CardTitle>{item.name}</CardTitle>
@@ -39,16 +41,17 @@ function Home(props){
        <StyleRoot>
          <div className = "container"  >
             <div className = "row align-items-start mt-5" >
-                <div className = "col-12 col-md m1" style = {styles.slidein}>
-                    <RenderCard item = {props.dish} isLoading = {props.dishLoading} 
-                    errMess = {props.errMess} />
+               <div className = "col-12 col-md m1" style = {styles.slidein}>
+                    <RenderCard item = {props.dish} isLoading = {props.dishesLoading} 
+                    errMess = {props.disheserrMess} />
                 </div>
                 <div className = "col-12 col-md m1" style = {styles.slidein}>
                     <RenderCard item = {props.promotion} isLoading = {props.promosLoading} 
                     errMess = {props.promoserrMess}/>
                 </div>
                 <div className = "col-12 col-md m1" style = {styles.slidein}>
-                    <RenderCard item = {props.leader}/>
+                <RenderCard item = {props.leader} isLoading = {props.leaderLoading} 
+                    errMess = {props.leadererrMess}/>
                 </div>
             </div>
         </div>  

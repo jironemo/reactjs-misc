@@ -27,7 +27,7 @@ import {baseUrl} from '../shared/baseUrl';
         }
 
         handleSubmit(values){
-            this.props.addComment(this.props.dishId,values.rating,values.author,values.comment);
+            this.props.postComment(this.props.dishId,values.rating,values.author,values.comment);
         }
         render() {
             return(
@@ -80,7 +80,7 @@ import {baseUrl} from '../shared/baseUrl';
         }
     }
 
-    function DishDetail({dish,comments,addComment,isLoading,errMess}){
+    function DishDetail({dish,comments,postComment,isLoading,errMess}){
         //reassigning dish into a local constant.
         const dishc = dish;
 
@@ -145,7 +145,7 @@ import {baseUrl} from '../shared/baseUrl';
                             <div className = "col-10 col-md-7 ml-4 mt-0">
                                 <h5>Comments</h5>
                                 {cmts}
-                                <CommentForm addComment = {addComment} dishId = {dish.id}/>
+                                <CommentForm postComment = {postComment} dishId = {dish.id}/>
                             </div>
                         </div>
                 </div>
